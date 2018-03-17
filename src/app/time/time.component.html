@@ -16,7 +16,7 @@
 
 <div class="container bottom" *ngIf="currentSelectedTime">
     <div class="lower">
-        <button class="btn" routerLink='/dashboard'>Back</button>
+        <button class="btn" (click)="updateProcess()">Back</button>
         <button class="btn btn-success" (click)="showNextProcess()">Next</button>
     </div>
 </div>

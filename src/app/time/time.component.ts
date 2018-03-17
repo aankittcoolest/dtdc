@@ -17,6 +17,9 @@ export class TimeComponent {
   @Output()
   selectedTime = new EventEmitter<Time>()
 
+  @Output()
+  showPreviousProcess = new EventEmitter<string>()
+
   currentSelectedTime
 
   timeRanges= [
@@ -75,5 +78,8 @@ export class TimeComponent {
     this.selectedTime.emit(time)
   }
   
+  updateProcess() {
+    this.showPreviousProcess.emit('sender-address');
+  }
 
 }

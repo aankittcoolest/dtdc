@@ -1,0 +1,21 @@
+.card-deck {
+    flex-direction: column;
+}
+
+.card-deck>.card {
+    margin: 10px 0px;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1050;
+}
+
+.lower {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RequestBox } from '../request-box';
 
 @Component({
@@ -14,6 +14,13 @@ export class ConfirmComponent implements OnInit {
   requestBox
 
   ngOnInit() {
+  }
+
+  @Output()
+  showPreviousProcess = new EventEmitter<string>()
+
+  updateProcess() {
+    this.showPreviousProcess.emit('sender-address');
   }
 
 }

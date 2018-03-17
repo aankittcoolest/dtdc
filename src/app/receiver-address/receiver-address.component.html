@@ -13,9 +13,9 @@
     <app-new-address [address]="address" [(isAddNewAddress)]="isAddNewAddress" (saveAddress)="save($event)"></app-new-address>
 </div>
 
-<div class="container bottom" *ngIf="isAddNewAddress==false">
+<div class="container bottom" *ngIf="selectedAddress">
     <div class="lower">
-        <button class="btn" (click)="showPreviousProcess()">Back</button>
+        <button class="btn" (click)="updateProcess()">Back</button>
         <button class="btn btn-primary" (click)="addNewAddress()"> Create New Address</button>
         <button class="btn btn-success" (click)="showNextProcess()">Next</button>
     </div>

@@ -1,5 +1,6 @@
-<div class="card-deck">
-  <div class="card mb-3" style="max-width: 18rem;" >
+<div class="container">
+  <div class="card-deck">
+  <div class="card">
       <div class="card-header" >Sender Address</div>
       <div class="card-body">
         <div class="card-text"><strong>Street: </strong>{{requestBox.senderAddress.street}} </div>
@@ -11,7 +12,7 @@
       </div>
   </div>
 
-  <div class="card mb-3" style="max-width: 18rem;" >
+  <div class="card">
       <div class="card-header" >Receiver Address</div>
       <div class="card-body">
         <div class="card-text"><strong>Street: </strong>{{requestBox.receiverAddress.street}} </div>
@@ -22,4 +23,20 @@
         <div class="card-text"><strong>State: </strong>{{requestBox.receiverAddress.state}} </div>
       </div>
   </div>
+
+  <div class="card bg-light">
+      <div class="card-header" >Pick Up Details</div>
+      <div class="card-body">
+        <div class="card-text"><strong>Pick up Date: </strong>{{requestBox.receiverAddress.street}} </div>
+        <div class="card-text"><strong>Pick up Time: </strong>{{requestBox.receiverAddress.mainAddress}} </div>
+      </div>
   </div>
+  </div>
+</div>
+
+<div class="container bottom">
+    <div class="lower">
+        <button class="btn" (click)="updateProcess()">Back</button>
+        <button class="btn btn-success" (click)="showNextProcess()">Confirm</button>
+    </div>
+</div>

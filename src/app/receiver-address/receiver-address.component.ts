@@ -18,6 +18,9 @@ export class ReceiverAddressComponent implements OnInit {
   @Output()
   receiverAddressChange = new EventEmitter<Address>()
 
+  @Output()
+  showPreviousProcess = new EventEmitter<string>()
+
   addresses = new Array()
   address = new Address('', '', '', '', '', 'Uttar Pradesh')
 
@@ -48,6 +51,10 @@ export class ReceiverAddressComponent implements OnInit {
 
   showNextProcess(){
     this.receiverAddressChange.emit(this.selectedAddress)
+  }
+
+  updateProcess() {
+    this.showPreviousProcess.emit('sender-address');
   }
 
   updateSelectedAddress(address) {

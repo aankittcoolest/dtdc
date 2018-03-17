@@ -16,6 +16,14 @@ export class NewRequestComponent implements OnInit {
   time = new Time('', '');
   requestBox = new RequestBox(this.senderAddress, this.receiverAddress, this.time)
 
+  steps = [
+    { 'name': 'Sender Address', 'status': 'active', 'processName': 'sender-address' },
+    { 'name': 'Receiver Address', 'status': '', 'processName': 'receiver-address' },
+    { 'name': 'Set Time for pick up', 'status': '', 'processName': 'select-time' },
+    { 'name': 'Confirm', 'status': '', 'processName': 'confirm' },
+    { 'name': 'Request for pick up', 'status': '', 'processName': 'book' },
+  ]
+
   currentProcess: String = "sender-address"
 
   constructor() { }
@@ -46,6 +54,25 @@ export class NewRequestComponent implements OnInit {
 
   showNextProcess(process) {
     this.currentProcess = process
+    this.updateStepBar(process)
+  }
+
+  updateCurrentProcess(process) {
+    this.updateStepBar(this.currentProcess)
+    this.currentProcess = process
+  }
+
+  updateStepBar(process) {
+    this.steps.forEach(step => {
+      if(step.processName === process) {
+        if(step.status) {
+          step.status = ''
+        } else {
+          step.status = 'active'
+        }
+      }
+    })
+
   }
 
 }
