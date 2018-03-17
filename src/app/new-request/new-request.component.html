@@ -1,0 +1,20 @@
+<div class="container" *ngIf="currentProcess == 'sender-address'">
+<app-sender-address [senderAddress]="senderAddress" 
+(senderAddressChange)="updateSenderAddress($event)"></app-sender-address>
+</div>
+
+<div class="container" *ngIf="currentProcess == 'receiver-address'">
+<app-receiver-address [receiverAddress]="receiverAddress" 
+(receiverAddressChange)="updateReceiverAddress($event)"></app-receiver-address>
+</div>
+
+<div class="container"  *ngIf="currentProcess == 'select-time'">
+    <app-time (selectedTime)="updateTime($event)"></app-time>
+</div>
+
+<div class="container"  *ngIf="currentProcess == 'confirm'">
+    <app-confirm [requestBox]="requestBox"></app-confirm>
+</div>
+
+{{requestBox | json}}
+{{senderAddress | json}}

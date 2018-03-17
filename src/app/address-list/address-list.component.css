@@ -1,0 +1,11 @@
+.card {
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: tomato;
+}
+
+.selected {
+    background-color: blueviolet;
+}

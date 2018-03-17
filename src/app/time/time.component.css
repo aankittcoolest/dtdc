@@ -1,0 +1,23 @@
+.badge-default {
+    background-color: #636c72;
+    color: #fff;
+    cursor: no-drop;
+}
+
+.badge-primary {
+    cursor: pointer;
+}
+
+.time {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.badge-pill {
+    padding: 0.5em 1em;
+    font-size: 150%;
+}
+
+.badge {
+    /* cursor: pointer; */
+}

@@ -1,0 +1,15 @@
+<div class="form-group" *ngIf="!isVerificationMailSent">
+  <input type="email" class="email" placeholder="Email">
+  <button class="btn btn-success" (click)="sendOtpMail()">Verify</button>
+</div>
+
+<div *ngIf="isVerificationMailSent">
+  <p>We have sent you a confirmation code on your mail <br>
+  Please input the verification number</p>
+<div class="form-group">
+  <input type="text" class="otp" placeholder="Enter verification mail">
+  <button class="btn btn-success" (click)="verifyOtp()">Confirm</button>
+  <button class="btn" (click)="reVerify()">Request again</button>
+</div>
+
+</div>

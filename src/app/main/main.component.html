@@ -1,0 +1,21 @@
+
+<img src="assets/images/background.jpg" alt="" class="bg">
+
+<div class="modal" *ngIf="showMain">
+      <div class="container">
+            <button (click)="showAuth()" class="btn btn-primary">Set a pick up</button>
+            <a href="#" class="btn btn-primary">Request a Pick up</a>
+      </div>
+</div>
+
+<div class="modal" *ngIf="auth">
+      <div class="container">
+            <app-auth-tab (currentTab)="updateCurrentTab($event)"></app-auth-tab>
+            <app-signup (isCancelled)="hideAuth()"
+            (isLoggedIn)="updateLogin($event)"
+            *ngIf="currentTab === 'signUp'"></app-signup>
+            <app-login (close)="hideAuth()" 
+            (isLoggedIn)="updateLogin($event)"
+            *ngIf="currentTab === 'login'"></app-login>
+      </div>
+</div>

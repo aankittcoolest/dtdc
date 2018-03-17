@@ -1,0 +1,78 @@
+<div *ngIf="isAddNewAddress==true">
+    <div class="modal" [style.display]="'block'">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Address</h5>
+                    <button type="button" class="close" (click)="closeAddressModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+                            <form class="form-horizontal" (ngSubmit)="save(); addressForm.resetForm();" #addressForm="ngForm">
+                                <div class="form-group">
+                                    <label for="">Your Street Address</label>
+                                    <input type="text" class="form-control" placeholder="Enter your street" [(ngModel)]="address.street" name="street" #street="ngModel"
+                                        required>
+                                </div>
+                                <div [hidden]="street.valid || street.pristine" class="alter alert-danger">
+                                    Street is required
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Main Address</label>
+                                    <input type="text" class="form-control" placeholder="Enter Main Address" [(ngModel)]="address.mainAddress" name="main_address"
+                                        #mainAddress="ngModel" required>
+                                </div>
+
+                                <div [hidden]="mainAddress.valid || mainAddress.pristine" class="alter alert-danger">
+                                    Main Address is required
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Landmark</label>
+                                    <input type="text" class="form-control" placeholder="Enter nearest Landmark" [(ngModel)]="address.landmark" name="landmark"
+                                        #landmark="ngModel">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Select pin code</label>
+                                    <select name="" class="form-control" [(ngModel)]="selectedPincode" name="pincode" #pincode="ngModel" required>
+                                        <option *ngFor="let pincode of pincodes" [ngValue]="pincode.pincode">{{pincode.pincode}}</option>
+                                    </select>
+                                </div>
+
+                                <div [hidden]="pincode.valid || pincode.pristine" class="alert alert-danger">
+                                    Pincode is required
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">District</label>
+                                    <div *ngFor="let pincode of pincodes">
+                                        <div *ngIf="pincode.pincode == selectedPincode">
+                                            <input type="text" class="form-control" placeholder="District" [(ngModel)]="pincode.district" name="district" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">State</label>
+                                    <input type="text" class="form-control" [(ngModel)]="address.state" name="state" disabled>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeAddressModal()">Close</button>
+                                    <button type="submit" class="btn btn-primary" [disabled]="!addressForm.form.valid">Save changes</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

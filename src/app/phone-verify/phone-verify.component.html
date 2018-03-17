@@ -1,0 +1,17 @@
+<div *ngIf="!isVerificationPhoneSent">
+  <div class="form-group">
+    <input type="phone" class="phone" placeholder="phone">
+    <button class="btn btn-success" (click)="sendOtpPhone()">Verify</button>
+  </div>
+</div>
+
+<div *ngIf="isVerificationPhoneSent">
+  <p>We have sent you a confirmation code on your phone
+    <br> Please input the verification number</p>
+  <div class="form-group">
+    <input type="text" class="otp" placeholder="Verification code">
+    <button class="btn btn-success" (click)="verifyOtp()">Confirm</button>
+    <button class="btn" (click)="reVerify()">Request again</button>
+  </div>
+
+</div>

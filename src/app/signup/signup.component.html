@@ -1,0 +1,17 @@
+<div *ngIf="!isEmailVerified">
+  <app-email-verify (isEmailVerified)="updateEmailVerified($event)"></app-email-verify>
+</div>
+<div *ngIf="isEmailVerified">
+  <label for="">Hello user</label>
+  <div *ngIf="!isPhoneVerified">
+    <app-phone-verify (isPhoneVerified)="updatePhoneVerified($event)"></app-phone-verify>
+  </div>
+  <div *ngIf="isPhoneVerified">
+    <label for="">Phone number</label>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="password">
+    </div>
+    <button class="btn btn-primary" (click)="save()">Submit</button>
+  </div>
+</div>
+    <button class="btn" (click)="cancel()">Cancel</button>

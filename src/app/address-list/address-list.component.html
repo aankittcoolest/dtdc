@@ -1,0 +1,15 @@
+<div class="card-columns">
+  <div class="card mb-3" style="max-width: 18rem;" *ngFor="let address of addressList; let i=index"
+   (click) = "updateSelectedAddress(address)" 
+   [ngClass]="(currentSelectedAddress == address) ? 'selected': ''" >
+      <div class="card-header" >Address {{i+1}}</div>
+      <div class="card-body">
+        <div class="card-text"><strong>Street: </strong>{{address.street}} </div>
+        <div class="card-text"><strong>Main Address: </strong>{{address.mainAddress}} </div>
+        <div class="card-text"><strong>Landmark: </strong>{{address.landmark}} </div>
+        <div class="card-text"><strong>District: </strong>{{address.district}} </div>
+        <div class="card-text"><strong>Pincode: </strong>{{address.pincode}} </div>
+        <div class="card-text"><strong>State: </strong>{{address.state}} </div>
+      </div>
+  </div>
+</div>
