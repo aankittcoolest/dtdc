@@ -5,7 +5,8 @@
 
 <div class="container" *ngIf="currentProcess == 'sender-address'">
 <app-sender-address [senderAddress]="senderAddress" 
-(senderAddressChange)="updateSenderAddress($event)"></app-sender-address>
+(senderAddressChange)="updateSenderAddress($event)"
+(showDashboard)="goToDashboard($event)"></app-sender-address>
 </div>
 
 <div class="container" *ngIf="currentProcess == 'receiver-address'">
@@ -21,5 +22,10 @@
 
 <div class="container"  *ngIf="currentProcess == 'confirm'">
     <app-confirm [requestBox]="requestBox"
-    (showPreviousProcess)="udpateCurrentProcess($event)"></app-confirm>
+    (showPreviousProcess)="udpateCurrentProcess($event)"
+    (book)="showNextProcess($event)"></app-confirm>
+</div>
+
+<div class="container"  *ngIf="currentProcess == 'book'">
+    <app-book (showDashboard)="goToDashboard($event)"></app-book>
 </div>

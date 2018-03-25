@@ -8,10 +8,15 @@ import { RequestBox } from '../request-box';
 })
 export class ConfirmComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.log(this.requestBox)
+  }
 
   @Input()
   requestBox
+
+  @Output()
+  book= new EventEmitter<String>()
 
   ngOnInit() {
   }
@@ -21,6 +26,10 @@ export class ConfirmComponent implements OnInit {
 
   updateProcess() {
     this.showPreviousProcess.emit('sender-address');
+  }
+
+  showNextProcess(){
+    this.book.emit('book')
   }
 
 }

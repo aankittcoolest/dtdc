@@ -1,15 +1,24 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar w/ text</a>
+        <button class="navbar-brand bg-dark" >Navbar w/ text</button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <button  class="nav-link bg-dark" *ngIf="isAuthenticated" (click)="updateCurrentPage()">Dashboard</button>
+            </li>
           </ul>
           <span class="navbar-text">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link">logout</a>
+              <button  class="nav-link bg-dark" *ngIf="!isAuthenticated" (click)="showAuth('signUp')">Sign Up</button>
+            </li>
+            <li class="nav-item">
+              <button  class="nav-link bg-dark" *ngIf="!isAuthenticated" (click)="showAuth('login')">Login</button>
+            </li>
+            <li class="nav-item">
+              <button  class="nav-link bg-dark" *ngIf="isAuthenticated" (click)="logoutUser()">Logout</button>
             </li>
           </ul>
           </span>

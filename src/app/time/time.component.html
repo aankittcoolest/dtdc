@@ -1,17 +1,17 @@
 <form action="" #timeForm="ngForm">
-    <div class="row">
-    <div class="form-group col-md-5">
-        <input type="text" bsDatepicker [bsConfig]="datePickerConfig" 
-        class="form-control" name="dateOfPickUp" [(ngModel)]="dateOfPickUp"
-            (ngModelChange)="updateTime($event)" />
-    </div>
-
-    </div>
+        <div class="form-group">
+            <label for="Select Pick up Date">Select Pick up Date</label>
+            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="form-control" name="dateOfPickUp" [(ngModel)]="dateOfPickUp"
+                (ngModelChange)="updateTime($event)" />
+        </div>
 </form>
 
-<div class="time">
-    <span class="badge badge-pill" *ngFor="let timeRange of timeRanges" [ngClass]="(currentLimit <= timeRange.limit) ?'badge-primary' : 'badge-default'"
-        (click)="(currentLimit <= timeRange.limit) && selectTime(timeRange)">{{timeRange.range}}</span>
+<div>
+    <ul class="list-group">
+    <li  class="list-item" *ngFor="let timeRange of timeRanges"
+     [ngClass]="timeRange.class"
+        (click)="(currentLimit <= timeRange.limit) && selectTime(timeRange)">{{timeRange.range}}</li>
+    </ul>
 </div>
 
 <div class="container bottom" *ngIf="currentSelectedTime">

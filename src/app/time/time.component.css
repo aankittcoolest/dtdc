@@ -1,11 +1,18 @@
-.badge-default {
+.default {
     background-color: #636c72;
     color: #fff;
     cursor: no-drop;
 }
 
-.badge-primary {
+.primary {
     cursor: pointer;
+    background-color: steelblue;
+    color: #fff;
+}
+
+.selected {
+    cursor: pointer;
+    background-color: tomato;
 }
 
 .time {
@@ -30,4 +37,19 @@
       display: flex;
       justify-content: space-around;
       padding-bottom: 30px;
+  }
+
+  .list-item {
+      text-align: center;
+      padding: 1%;
+      margin: 2%;
+      font-size: 150%;
+  }
+
+  label {
+      font-size: 200%;
+  }
+
+  input {
+      font-size: 120%;
   }

@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RequestBox } from '../request-box';
 import { SenderAddress } from '../sender-address';
 import { Address } from '../address';
 import { Time } from '../time';
+import { NewRequestService } from '../services/new-request.service';
 
 @Component({
   selector: 'app-new-request',
   templateUrl: './new-request.component.html',
-  styleUrls: ['./new-request.component.css']
+  styleUrls: ['./new-request.component.css'],
+  providers: [NewRequestService]
 })
 export class NewRequestComponent implements OnInit {
 
-  senderAddress = new Address('', '' ,'','','','')
-  receiverAddress = new Address('', '' ,'','','','')
+  senderAddress = new Address('', '', '' ,'','','','')
+  receiverAddress = new Address('', '', '' ,'','','','')
   time = new Time('', '');
   requestBox = new RequestBox(this.senderAddress, this.receiverAddress, this.time)
 
@@ -25,6 +27,9 @@ export class NewRequestComponent implements OnInit {
   ]
 
   currentProcess: String = "sender-address"
+
+  @Output()
+  currentPage = new EventEmitter<String>()
 
   constructor() { }
 
@@ -49,6 +54,7 @@ export class NewRequestComponent implements OnInit {
   updateTime(time) {
     this.time = time
     this.requestBox.time = this.time
+    console.log(this.requestBox)
     this.showNextProcess('confirm')
   }
 
@@ -73,6 +79,10 @@ export class NewRequestComponent implements OnInit {
       }
     })
 
+  }
+
+  goToDashboard(componentName) {
+    this.currentPage.emit(componentName)
   }
 
 }

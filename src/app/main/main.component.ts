@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -7,15 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class MainComponent  implements OnInit{
 
-  auth:boolean
-  showMain:boolean = true
-  currentTab:string = "signUp"
+  @Input()
+  showMain:Boolean
+
+  @Output()
+  showMainChange = new EventEmitter<Boolean>()
+
+  @Input()
+  currentTab:String
 
   @Output()
   isLoggedIn = new EventEmitter<boolean>()
 
-  constructor() {
-    // this.showMain=true
+  showContactUs:Boolean = false
+
+  constructor(private authService: AuthService) {
   }
   
   ngOnInit() {
@@ -23,23 +30,27 @@ export class MainComponent  implements OnInit{
   }
 
   showAuth() {
-    this.showMain=false
-    this.auth=true
+    this.showMain = false
+    this.authService.setCurrentTab("signUp")
+    this.showMainChange.emit(false)
   }
 
   hideAuth() {
     this.showMain=true
-    this.auth=false
+    this.showMainChange.emit(true)
   }
 
   updateCurrentTab(tabName:string) {
-    console.log(tabName)
     this.currentTab=tabName
   }
 
   updateLogin(isLoggedIn:boolean) {
     console.log(isLoggedIn)
       this.isLoggedIn.emit(isLoggedIn)
+  }
+
+  toggleContactUs(hideContactModalStatus) {
+    this.showContactUs = hideContactModalStatus
   }
 
 }

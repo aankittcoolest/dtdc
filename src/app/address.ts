@@ -1,12 +1,14 @@
 export class Address {
-     street: string;
-     mainAddress: string;
-     landmark: string;
-     pincode: string;
-     district: string;
-     state: string;
+    _id: String
+     street: string
+     mainAddress: string
+     landmark: string
+     pincode: string
+     district: string
+     state: string
 
-    constructor(street, mainAddress, landmark, pincode, district, state) {
+    constructor(_id, street, mainAddress, landmark, pincode, district, state) {
+        this._id = _id
         this.street = street
         this.mainAddress = mainAddress
         this.landmark = landmark

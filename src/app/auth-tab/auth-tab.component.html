@@ -1,8 +1,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th class="active" (click)="showCurrentTab('signUp')">Sign up</th>
-      <th (click)="showCurrentTab('login')">Login</th>
+      <th [ngClass]="(activeTab=='signUp') ? 'active' : ''" (click)="showCurrentTab('signUp')">Sign up</th>
+      <th [ngClass]="(activeTab=='login') ? 'active' : ''" (click)="showCurrentTab('login')">Login</th>
     </tr>
   </thead>
 </table>

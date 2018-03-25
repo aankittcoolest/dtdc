@@ -1,11 +1,49 @@
 
 <div class="container">
-  <button class="btn btn-primary" (click)="updateCurrentPage('new-request')">Request <br/> pickup</button>
-  <button class="btn btn-primary" (click)="updateCurrentPage('callForPickUp')">Call for <br/> pickup</button>
+
+    <div class="card">
+        <div class="view hm-white-slight waves-light" mdbRippleRadius>
+            <img src="assets/images/delivery.jpg" class="img-fluid" alt="delivery">
+            <a>
+                <div class="mask"></div>
+            </a>
+        </div>
+    
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Set up your convenient time for pickup</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-default" (click)="updateCurrentPage('new-request')">Request pickup</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="view hm-white-slight waves-light" mdbRippleRadius>
+            <img src="assets/images/call.png" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
+            <a>
+                <div class="mask"></div>
+            </a>
+        </div>
+    
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Request us on phone for pickup</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-deep-orange" (click)="showContactUs=true">Call for pickup</button>
+        </div>
+    </div>
 </div>
 
+<app-contactus *ngIf="showContactUs" (hideContactUs) = "toggleContactUs($event)"></app-contactus>
+
 <div class="container-fluid">
+  <div class="history">
   <hr>
   <h1>Your Order History</h1>
   <app-history></app-history>
+  </div>
 </div>

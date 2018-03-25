@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-contactus',
@@ -9,7 +9,15 @@ export class ContactusComponent implements OnInit {
 
   constructor() { }
 
+  @Output()
+  hideContactUs = new EventEmitter<Boolean>()
+
   ngOnInit() {
+  }
+
+  closeContactModal() {
+    this.hideContactUs.emit(false)
+    console.log("ok")
   }
 
 }

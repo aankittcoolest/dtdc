@@ -1,0 +1,9 @@
+<div *ngIf="loading==false">
+    <app-main *ngIf="!isLoggedIn" (isLoggedIn)="updateLogin($event)" [showMain]="showMain" [currentTab]="currentTab" (showMainChange)="updateShowMain($event)"></app-main>
+    <app-nav (isLoggedIn)="updateLogin($event)" [isAuthenticated]="isLoggedIn" (toggleAuthComponent)="showAuthComponent($event)"></app-nav>
+    <div *ngIf="isLoggedIn">
+        <app-dashboard (currentPage)="updateCurrentPage($event)" *ngIf="currentPage=='dashboard'" >
+        </app-dashboard>
+        <app-new-request *ngIf="currentPage=='new-request'" (currentPage)="updateCurrentPage($event)"></app-new-request>
+    </div>
+</div>

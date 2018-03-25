@@ -1,6 +1,7 @@
 .modal {
     display: block;
     background-color: dimgray;
+    overflow-y: auto;
 }
 
 .ng-valid[required], .ng-valid.required  {
@@ -13,4 +14,9 @@
 
   .ng-pristine[required] {
       border-left: none;
+  }
+
+  form {
+      width: 80%;
+      /* width: -webkit-fill-available; */
   }

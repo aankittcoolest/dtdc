@@ -1,7 +1,14 @@
-<div class="form-group">
-    <input type="email" class="form-control" placeholder="Email">
+
+<div *ngIf="isLoginFail">
+  Login or Password do not match
+</div>
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" >
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" placeholder="password">
+    <input type="password" class="form-control" placeholder="password" [(ngModel)]="user.password" name="password">
   </div>
-  <button class="btn btn-primary" (click)="login()">Submit</button>
+  <button class="btn btn-primary" [disabled]="!loginForm.form.valid">Submit</button>
+   <a class="btn btn-brown waves-light" (click)="cancel()">Cancel</a>
+</form>

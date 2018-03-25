@@ -18,9 +18,6 @@
                                     <input type="text" class="form-control" placeholder="Enter your street" [(ngModel)]="address.street" name="street" #street="ngModel"
                                         required>
                                 </div>
-                                <div [hidden]="street.valid || street.pristine" class="alter alert-danger">
-                                    Street is required
-                                </div>
 
                                 <div class="form-group">
                                     <label for="">Main Address</label>

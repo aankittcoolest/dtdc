@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-auth-tab',
@@ -7,16 +8,27 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class AuthTabComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.activeTab = this.authService.currentTab
+   }
 
   @Output()
-  currentTab = new EventEmitter<string>()
+  currentTabChange = new EventEmitter<string>()
+
+  @Input()
+  currentTab
+
+  activeTab:String
 
   ngOnInit() {
+    this.authService.currentTabUpdated.subscribe(
+      (currentTab) => this.activeTab = currentTab
+    )
   }
 
   showCurrentTab(tabName:string) {
-    this.currentTab.emit(tabName)
+    this.activeTab = tabName
+    this.currentTabChange.emit(tabName)
   }
 
 }
