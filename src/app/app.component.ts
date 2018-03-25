@@ -53,9 +53,6 @@ export class AppComponent {
   }
 
   showAuthComponent(componentName) {
-    this.authService.showMain = false
-    this.showMain = this.authService.showMain
-    console.log(componentName)
     this.currentTab = componentName
   }
 
